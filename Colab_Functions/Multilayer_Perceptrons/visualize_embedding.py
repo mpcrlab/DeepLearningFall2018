@@ -25,3 +25,5 @@ def viz_mnist_embedding(tensor, images, labels):
     for index,label in enumerate(labels):
       f.write("%d\t%d\n" % (index,label))
   f.close()
+
+  return
