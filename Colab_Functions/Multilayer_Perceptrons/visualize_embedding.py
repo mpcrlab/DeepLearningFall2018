@@ -1,4 +1,7 @@
 def viz_mnist_embedding(tensor, images, labels):
+  '''Takes in a TF variable tensor, along with images and their 
+     corresponding labels and sets up the projector to 
+     visualize the data space.'''
   
   tb_dir = '/tmp/tflearn_logs'
   sess = tf.Session()
