@@ -1,0 +1,8 @@
+The accuracy of our model decreased by ~0.10 when we took away the bias unit. 
+This is because our bias unit helps increase the accuracy of our model as it
+trains though the linear data set. The bias unit will also always output some 
+non-zero value for our model's activation function and when its weight is also
+a non-zero value. This is an important feature when all of our features (both x0 
+and x1) for a given data point are equal to zero, hence making the output of the 
+model equal to the trained weight of the bias unit at the given time of training
+or testing.
