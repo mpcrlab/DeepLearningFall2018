@@ -2,7 +2,6 @@ import numpy as np
 import os, sys
 import glob
 from scipy.misc import imread, imresize, imshow
-import cv2
 
 
 
