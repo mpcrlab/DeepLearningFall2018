@@ -1,10 +1,3 @@
-import numpy as np
-import os, sys
-import glob
-from scipy.misc import imread, imresize, imshow
-
-
-
 def img_reader(dir, imsz, file_ex=None, sort=False):
     ''' A function that reads in images contained
         in each folder in dir, resizes them to
@@ -40,21 +33,19 @@ def img_reader(dir, imsz, file_ex=None, sort=False):
     num_ims=sum([len(files) for r, d, files in os.walk(os.getcwd())])
     imgs = np.zeros([num_ims, imsz[0], imsz[1], 3])
     labels = np.zeros([num_ims, 1])
-    i = 0
 
-    for folder in xrange(len(folders)):
-        os.chdir(dir + '/' + folders[folder])
+    for subdir, folder in enumerate(folders):
+        os.chdir(dir + '/' + folder)
         files = glob.glob(file_ex)
         if sort:
             files.sort()
 
-        for file in files:
+        for i, file in enumerate(files):
             if os.path.isfile(file):
                 img = imread(file)
                 img = imresize(img, [imsz[0], imsz[1]])
                 imgs[i, ...] = img
-                labels[i, 0] = folder
-                i += 1
+                labels[i, 0] = subdir
 
     os.chdir(main_dir)            
     return imgs, labels
